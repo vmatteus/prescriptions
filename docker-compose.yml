@@ -1,0 +1,21 @@
+version: '2'
+services:
+    base-api:
+        container_name: base-api
+        build: ./docker
+        volumes: 
+          - ./:/opt/base-api
+        expose: 
+          - "8000"
+          - "80"
+        ports:
+          - "10089:8000"
+        command:
+          php ./laravel/artisan serve --host=0.0.0.0 --port=8000
+        networks: 
+          - inside
+networks: 
+  inside:
+    external: true
+    name: inside
+  
