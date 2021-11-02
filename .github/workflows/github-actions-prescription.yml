@@ -18,5 +18,7 @@ jobs:
         run: docker exec prescriptions-api php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Generate key
         run: docker exec prescriptions-api php artisan key:generate
-      - name: up service
-        run: docker exec prescriptions-api php artisan serve --host=0.0.0.0 --port=8000 &
+      - name: Execute Migration
+        run: docker exec prescriptions-api php artisan migrate
+      - name: execute test
+        run: docker exec prescriptions-api vendor/bin/phpunit
