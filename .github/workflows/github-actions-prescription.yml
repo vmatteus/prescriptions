@@ -10,7 +10,11 @@ jobs:
         run: docker network create inside
       - name: Build the stack
         run: docker-compose up
+      - name: Composer install
+        run: docker exec -it prescriptions-api composer install
       - name: Copy .env
         run: docker exec -it prescriptions-api php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Generate key
         run: docker exec -it prescriptions-api php artisan key:generate
+      - name: up service
+        run: docker exec -it prescriptions-api php artisan serve --host=0.0.0.0 --port=8000
