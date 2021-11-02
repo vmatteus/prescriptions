@@ -11,6 +11,6 @@ jobs:
       - name: Build the stack
         run: docker-compose up -d
       - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        run: docker exec -it prescriptions-api php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Generate key
-        run: php artisan key:generate
+        run: docker exec -it prescriptions-api php artisan key:generate
