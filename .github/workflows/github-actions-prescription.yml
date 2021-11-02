@@ -21,4 +21,4 @@ jobs:
       - name: Execute Migration
         run: docker exec prescriptions-api php artisan migrate
       - name: execute test
-        run: docker exec prescriptions-api vendor/bin/phpunit
+        run: docker exec prescriptions-api vendor/bin/phpunit --filter=PrescriptionTest
