@@ -1,8 +1,8 @@
-# Setup Base - Api
+# Setup Prescriptions - Api
 
 ### Documentação geral
 
-...
+Na aba actions, aqui do repositório estão as actions que sobem e testam o código.
 
 ### Pré-requisitos:
 
@@ -11,12 +11,6 @@ Para trabalhar nesse projeto você ira precisar instalar:
 *[ Docker ](https://www.docker.com/get-started)			
 
 *[ Docker Compose ](https://docs.docker.com/compose/install/)
-
-### Instalar o Mysql, caso seja necessário:
-
-*[ Mysql ](https://github.com/vmatteus/docker-mysql)
-
-Descobrindo o ip do docker: docker network inspect genial | grep Gateway
 
 ### Preparando o ambiente Docker:
 
