@@ -9,7 +9,7 @@ jobs:
       - name: Create Network
         run: docker network create inside
       - name: Build the stack
-        run: docker-compose up
+        run: docker-compose up -d
       - name: Composer install
         run: docker exec -it prescriptions-api composer install
       - name: Copy .env
