@@ -38,6 +38,8 @@ class PrescriptionService {
         $patient = App::make(PatientServices::class)->get($data['patient']['id']);
         $patient = json_decode($patient);
 
+        $prescription->save();
+
         // Send Metrics
         $body = [
             'clinic_id' => $clinic->id,
