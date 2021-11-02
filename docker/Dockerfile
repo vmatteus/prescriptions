@@ -5,8 +5,12 @@ RUN apt-get update && apt-get install -y curl \
     libpq-dev \
     libxml2-dev \
     openssl \
-    git
+    git 
 
+RUN apt-get install -y \
+        libzip-dev \
+        zip \
+  && docker-php-ext-install zip
 
 RUN docker-php-ext-install \
     pdo_mysql \
@@ -16,6 +20,8 @@ RUN docker-php-ext-install \
 
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
+RUN docker-php-ext-configure zip
+RUN docker-php-ext-install zip
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
