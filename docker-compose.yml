@@ -1,20 +1,19 @@
 version: '2'
 services:
-    base-api:
-        container_name: base-api
-        build: ./docker
-        volumes: 
-          - ./src:/opt/base-api/src
-        expose: 
-          - "8000"
-        ports:
-          - "8000:8000"
-        command:
-          bash -c "composer install && php artisan serve --host=0.0.0.0 --port=8000"
-        networks: 
-          - inside
+  prescriptions-api:
+    container_name: prescriptions-api
+    build: ./docker
+    volumes: 
+      - ./src:/opt/prescriptions-api/src
+    expose: 
+      - "8000"
+    ports:
+      - "8000:8000"
+    command:
+      bash -c "composer install && php artisan serve --host=0.0.0.0 --port=8000"
+    networks: 
+      - inside
 networks: 
   inside:
     external: true
     name: inside
-  
