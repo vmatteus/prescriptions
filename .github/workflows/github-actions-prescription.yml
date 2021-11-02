@@ -13,7 +13,7 @@ jobs:
       - name: Docker ps
         run: docker ps
       - name: Composer install
-        run: docker exec prescriptions-api composer install
+        run: docker exec prescriptions-api composer install --no-interaction --prefer-dist --optimize-autoloader
       - name: Copy .env
         run: docker exec prescriptions-api php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Generate key
