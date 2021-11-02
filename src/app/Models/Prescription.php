@@ -19,6 +19,7 @@ class Prescription extends Model
         'physician_id',
         'patient_id',
         'text',
+        'metric_id'
     ];
 
     protected $dates = [

@@ -25,6 +25,7 @@ class PrescriptionTransformer extends TransformerAbstract
             'physician_id' => $entity->physician_id,
             'patient_id'   => $entity->patient_id,
             'text'         => $entity->text,
+            'metric_id'    => $entity->metric_id,
         ];
     }
 
