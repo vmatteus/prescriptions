@@ -9,4 +9,8 @@ jobs:
       - name: Create Network
         run: docker network create inside
       - name: Build the stack
-        run: docker-compose up
+        run: docker-compose up -d
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Generate key
+        run: php artisan key:generate
