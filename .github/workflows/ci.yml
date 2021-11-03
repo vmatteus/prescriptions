@@ -12,13 +12,16 @@ jobs:
         fetch-depth: 1
 
     - name: Install composer dependencies
+      working-directory: ./src
       run: |
         composer install --no-scripts
 
     - name: Prepare Laravel Application
+      working-directory: ./src
       run: |
         cp .env.ci .env
         php artisan key:generate
 
     - name: Run Testsuite
+      working-directory: ./src
       run: vendor/bin/phpunit tests/
