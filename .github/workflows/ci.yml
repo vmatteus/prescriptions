@@ -1,5 +1,4 @@
-name: Prescription WorkFlow
-
+name: Prescription V2 WorkFlow
 on: push
 jobs:
   phpunit:
