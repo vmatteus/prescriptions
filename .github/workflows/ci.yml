@@ -22,6 +22,11 @@ jobs:
         cp .env.ci .env
         php artisan key:generate
 
+    - name: Run migrate
+      working-directory: ./src
+      run: |
+        php artisan migrate
+
     - name: Run Testsuite
       working-directory: ./src
       run: vendor/bin/phpunit tests/
